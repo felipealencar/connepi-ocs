@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>Mapa do Instituto Federal</title>
+	<link rel="shortcut icon" href="img/favicon.png">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/infobox.css">
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+	<div id="menu">
+	    <div id="topo_menu">Instituto Federal</div>
+		<div id="desc_menu"></div>
+		<div id="graficos"></div>
+		<div id="grafico_menu"></div>
+	</div>
+	
+	<!-- S C R I P T S -->
+	<script src="js/jquery.min.js"></script>
+	
+	<!-- API do mapa -->
+	<script src="https://maps.googleapis.com/maps/api/js?v=AIzaSyC7IglB_iAeSbJ3L7PZrNEVmB_9banypa4.exp&sensor=false"></script>
+	
+	<!-- Inicialização do mapa -->
+	<script src="js/mapa.js"></script>
+	 <!-- Caixa de informação -->
+     <script src="js/infobox.js"></script>
+	
+	<!-- Agrupamento dos marcadores -->
+	<script src="js/markerclusterer.js"></script>
+	
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<!--<script src="js/grafico.js"></script>-->
+	
+  </body>
+</html>

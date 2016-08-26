@@ -1,0 +1,54 @@
+/**
+ * rightSidebar.css
+ *
+ * Copyright (c) 2000-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Site-wide shared elements for pages including a right-hand sidebar.
+ *
+ * $Id$
+ */
+
+/**
+ * Common HTML elements
+ */
+
+
+
+#body {
+	width: 100%;
+        overflow:hidden;
+        min-height: 800px;
+	background-color: #ecf1f4; */
+	background-color: #ecf1f4; */
+	background-color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFECF1F4', endColorstr='#FFFFFFFF');
+	background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+	-size: 100%;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ecf1f4), color-stop(100%, #ffffff));
+	background-image: -webkit-linear-gradient(top, #ecf1f4 0%, #ffffff 100%);
+	background-image: -moz-linear-gradient(top, #ecf1f4 0%, #ffffff 100%);
+	background-image: -o-linear-gradient(top, #ecf1f4 0%, #ffffff 100%);
+	background-image: -ms-linear-gradient(top, #ecf1f4 0%, #ffffff 100%);
+	background-image: linear-gradient(top, #ecf1f4 0%, #ffffff 100%);
+}
+
+#rightSidebar {
+	float: right;
+	width: 14%;
+	padding: 1em 0em 1em 0em;
+	font-size: 0.65em;
+	height: 100%;
+	margin-right: 10%;
+	margin-left: 2%;
+}
+
+* html #rightSidebar { margin-right: 5%; }
+
+#main {
+	float: left;
+	width: 63%;
+	margin-left: 10%;
+	display: inline;
+	overflow: hidden;
+}

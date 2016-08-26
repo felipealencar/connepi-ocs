@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Camada sem título</name>
+		<Placemark>
+			<styleUrl>#line-000000-1</styleUrl>
+			<name>Linha 3</name>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>-37.02117919921875,-9.129215680645743,0.0 -36.990966796875,-9.093960654844407,0.0 -36.96075439453125,-9.072263527470948,0.0 -36.93603515625,-9.055989820738956,0.0 -36.90582275390625,-9.037002898469408,0.0 -36.81793212890625,-8.971897294083012,0.0 -36.7767333984375,-8.952905955274613,0.0</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#line-000000-1</styleUrl>
+			<name>Linha 4</name>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>-36.7327880859375,-8.958332153366216,0.0 -36.6888427734375,-8.909493459962771,0.0 -36.5625,-8.876930702774121,0.0 -36.52679443359375,-8.874217009053554,0.0 -36.49383544921875,-8.898639529381425,0.0 -36.3922119140625,-8.876930702774121,0.0 -36.32080078125,-8.866075807508214,0.0</coordinates>
+			</LineString>
+		</Placemark>
+		<Style id='line-000000-1'>
+			<LineStyle>
+				<color>ff000000</color>
+				<width>1</width>
+			</LineStyle>
+		</Style>
+	</Document>
+</kml>

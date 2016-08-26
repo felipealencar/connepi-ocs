@@ -52,6 +52,7 @@ class Session extends DataObject {
 		return $value;
 	}
 
+
 	/**
 	 * Unset (delete) a session variable.
 	 * @param $key string
@@ -61,15 +62,16 @@ class Session extends DataObject {
 			unset($_SESSION[$key]);
 		}
 
-		if (session_is_registered($key)) {
+		/*if (session_is_registered($key)) {
 			session_unregister($key);
-		}
+		}*/
 	}
+
 
 	//
 	// Get/set methods
 	//
-
+	
 	/**
 	 * Get user ID (0 if anonymous user).
 	 * @return int

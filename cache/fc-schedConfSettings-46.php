@@ -1,4 +1,5 @@
 <?php return array (
+  'reviewDeadlineType' => 2,
   'numWeeksPerReview' => 4,
   'paymentMethodPluginName' => 'ManualPayment',
   'title' => 
@@ -30,7 +31,6 @@
   'contributors' => 
   array (
   ),
-  'reviewDeadlineType' => 2,
   'introduction' => 
   array (
     'pt_BR' => 'De 06 a 09 de dezembro, estudantes, professores e pesquisadores de todo pa&iacute;s est&atilde;o discutindo ideias e apresentando pesquisas sobre mais de 10 &aacute;reas tem&aacute;ticas. Tudo isso sendo realizado em uma das cidades mais bonitas do Brasil.Ap&oacute;s 6 anos, o evento volta &agrave; capital de Alagoas, Macei&oacute;, iniciando um novo ciclo visando a uni&atilde;o da Rede Federal de Educa&ccedil;&atilde;o Tecnol&oacute;gica, principalmente no cont&iacute;nuo desenvolvimento, ressaltando a qualidade de produ&ccedil;&atilde;o t&eacute;cnica e cient&iacute;fica da comunidade envolvida.',
@@ -131,7 +131,7 @@ http://connepi.ifal.edu.br/ocs/index.php/connepi/connpi2016/index',
   'restrictReviewerFileAccess' => 1,
   'reviewerAccessKeysEnabled' => 1,
   'numDaysBeforeInviteReminder' => 5,
-  'numDaysBeforeSubmitReminder' => 0,
+  'numDaysBeforeSubmitReminder' => 1,
   'numWeeksPerReviewRelative' => 0,
   'numWeeksPerReviewAbsolute' => 1474754400,
   'notifyAllAuthorsOnDecision' => true,

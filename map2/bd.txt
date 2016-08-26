@@ -1,0 +1,43 @@
+create table t_if
+(
+  id_if smallint not null unique primary key,
+  nome_if varchar(30),
+  lat_if FLOAT( 10, 6 ) NOT NULL,
+  lng_if FLOAT( 10, 6 ) NOT NULL,
+  estado_if   varchar(30) NOT NULL 
+);
+
+create table t_campus
+(
+  id_if smallint not null unique,
+  nome_campus varchar(30),
+  lat_campus float(10, 6),
+  lng_campus float(10, 6),
+  id_campus smallint not null unique primary key,
+  cidade_campus varchar(30),
+  endereco_campus varchar(80),
+  CONSTRAINT fk_id_if FOREIGN KEY (id_if)
+  REFERENCES t_if(id_if)
+);
+
+create table t_professor
+(
+  cpf_prof integer not null unique primary key,
+  nome_prof varchar(60),
+  id_campus smallint not null,
+  CONSTRAINT fk_id_campus FOREIGN KEY(id_campus),
+  REFERENCES t_campus(id_campus)
+);
+
+create table t_projeto
+(
+  nome_proj varchar(60),
+  ds_proj varchar(100),
+  id_proj  smallint unique not null primary key,
+  cpf_prof integer not null unique,
+  CONSTRAINT fk_id_proj FOREIGN KEY(cpf_prof)
+  REFERENCES t_professor(cpf_prof)
+);
+
+
+

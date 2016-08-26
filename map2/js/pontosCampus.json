@@ -1,0 +1,79 @@
+[
+    {
+        "Id": 11,
+		"Latitude": -9.6636955,
+        "Longitude":  -35.731182718,
+		"Nome": "IFAL - Maceió",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Maceió</b><hr></p></p><p><table ><tr><td><b>Professor</b></td><td><b>Projeto</br></td></tr><tr><td>Leonardo Luiz</td><td>(2)</br></td></tr><tr><td>Ricardo Rubens</td><td>(4)</br></td></tr><tr><td>Mauricio Nunes</td><td>(0)</br></td></tr></table></p></p>" 
+    },
+    {
+        "Id": 12,
+		"Latitude": -9.0103703,
+        "Longitude": -35.220276318,
+		"Nome": "IFAL - Maragogi",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Maragogi</b></p></p></p>"
+    },
+    {
+        "Id": 13,
+	    "Latitude": -9.3072476,
+        "Longitude": -35.94312315,
+		"Nome": "IFAL - Murici",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Murici</b></p></p></p>"
+    },
+	 {
+        "Id": 14,
+	    "Latitude": -9.5715862,
+        "Longitude": -35.82541515,
+		"Nome": "IFAL - Satuba",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Satuba</b></p></p></p>"
+    },
+	 {
+        "Id": 15,
+	    "Latitude": -9.7172,
+        "Longitude": -35.891615615,
+		"Nome": "IFAL - Marechal Deodoro",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Marechal Deodoro</b></p></p></p>"
+    },
+	{
+        "Id": 16,
+	    "Latitude": -9.7834381,
+        "Longitude": -36.097468915,
+		"Nome": "IFAL - São Miguel",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus São Miguel</b><hr></p></p><p><table ><tr><td><b>Professor</b></td><td><b>Projeto</br></td></tr><tr><td>Fernando Pessoa</td><td>(1)</br></td></tr><tr><td>Rogerio Leite</td><td>(3)</br></td></tr></table></p></p>"
+    },
+	{
+        "Id": 17,
+	    "Latitude": -9.7539008,
+        "Longitude": -36.654754613,
+		"Nome": "IFAL - Arapiraca",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Arapiraca</b></p></p></p>"
+    },
+	{
+        "Id": 18,
+	    "Latitude": -10.2878534,
+        "Longitude": -36.582236715,
+		"Nome": "IFAL - Penedo",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Penedo</b></p></p></p>"
+    },
+	{
+        "Id": 19,
+	    "Latitude": -9.4101565,
+        "Longitude": -36.639295615,
+		"Nome": "IFAL - Palmeira dos Índios",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Palmeira dos Indios</b></p></p></p>"
+    },
+	{
+        "Id": 110,
+	    "Latitude": -9.3692805,
+        "Longitude": -37.242330115,
+		"Nome": "IFAL - Santana do Ipanema",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Santana do Ipanema</b></p></p></p>"
+    },
+	{
+        "Id": 111,
+	    "Latitude": -9.6112526,
+        "Longitude": -37.761645514,
+		"Nome": "IFAL - Piranhas",
+		"Descricao": "<p><p><b>IFAL</b><br>Instituto Federal de Alagoas<br><a> ifal.edu.br</a></p><hr><p><b>Campus Piranhas</b></p></p></p>"
+    }
+]

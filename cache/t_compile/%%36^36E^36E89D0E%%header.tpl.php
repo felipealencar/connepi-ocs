@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-08-26 05:41:55
+<?php /* Smarty version 2.6.26, created on 2016-08-31 22:10:25
          compiled from core:common/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'core:common/header.tpl', 11, false),array('function', 'call_hook', 'core:common/header.tpl', 53, false),array('modifier', 'assign', 'core:common/header.tpl', 11, false),array('modifier', 'escape', 'core:common/header.tpl', 24, false),)), $this); ?>
@@ -32,7 +32,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 /styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="<?php echo $this->_tpl_vars['baseUrl']; ?>
 /styles/modal.css" type="text/css" />
-		
+
 	<!-- Base Jquery -->
 	<?php if ($this->_tpl_vars['allowCDN']): ?><script src="http://www.google.com/jsapi"></script>
 	<script>
@@ -47,7 +47,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 	<?php endif; ?>
 	<!-- Add javascript required for font sizer -->
 	<script type="text/javascript" src="<?php echo $this->_tpl_vars['baseUrl']; ?>
-/lib/pkp/js/jquery.cookie.js"></script>	
+/lib/pkp/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="<?php echo $this->_tpl_vars['baseUrl']; ?>
 /lib/pkp/js/fontController.js" ></script>
 	<script type="text/javascript"><?php echo '
@@ -82,18 +82,16 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'translate',
 /lib/pkp/js/general.js"></script>
 	<?php echo $this->_tpl_vars['additionalHeadData']; ?>
 
-        
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 <body>
-<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a href="http://brasil.gov.br" class="link-barra">Brasil</a></div><span class="acesso-info"><a href="http://brasil.gov.br/barra#acesso-informacao" class="link-barra">Acesso à informação</a><span class="hashtag-barra-brasil"><a href="http://www2.inca.gov.br" class="link-barra"><span>#CancerDeMama</span><span>#OutubroRosa2014</span></a></span></span><ul class="list"><li class="list-item first"><a href="http://brasil.gov.br/barra#participe" class="link-barra">Participe</a></li><li class="list-item"><a href="http://www.servicos.gov.br/" class="link-barra">Serviços</a></li><li class="list-item"><a href="http://www.planalto.gov.br/legislacao" class="link-barra">Legislação</a></li><li class="list-item last last-item"><a href="http://brasil.gov.br/barra#orgaos-atuacao-canais" class="link-barra">Canais</a></li></ul></div></div>
+<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a href="http://brasil.gov.br" class="link-barra">Brasil</a></div><span class="acesso-info"><a href="http://brasil.gov.br/barra#acesso-informacao" class="link-barra">Acesso ï¿½ informaï¿½ï¿½o</a><span class="hashtag-barra-brasil"><a href="http://www2.inca.gov.br" class="link-barra"><span>#CancerDeMama</span><span>#OutubroRosa2014</span></a></span></span><ul class="list"><li class="list-item first"><a href="http://brasil.gov.br/barra#participe" class="link-barra">Participe</a></li><li class="list-item"><a href="http://www.servicos.gov.br/" class="link-barra">Serviï¿½os</a></li><li class="list-item"><a href="http://www.planalto.gov.br/legislacao" class="link-barra">Legislaï¿½ï¿½o</a></li><li class="list-item last last-item"><a href="http://brasil.gov.br/barra#orgaos-atuacao-canais" class="link-barra">Canais</a></li></ul></div></div>
     <script id="bbrasil" src="http://barra.brasil.gov.br/barra.js?cor=azul" type="text/javascript"></script>
 <div id="container">
 
 <div id="header">
 <div id="row">
 <div id="logo" class="span5">
-                <a href="http://congressos.ifal.edu.br" title="Página Principal"><img src="http://congressos.ifal.edu.br/public/logo.png" alt="Instituto Federal de Alagoas"></a>
+                <a href="http://congressos.ifal.edu.br" title="Pï¿½gina Principal"><img src="http://congressos.ifal.edu.br/public/logo.png" alt="Instituto Federal de Alagoas"></a>
             </div>
 <div id="headerTitle">
 <h1>

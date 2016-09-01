@@ -1,0 +1,64 @@
+diff -u -r1.9 AuthorSubmitForm.inc.php
+--- classes/author/form/submit/AuthorSubmitForm.inc.php	1 Jul 2009 00:50:16 -0000	1.9
++++ classes/author/form/submit/AuthorSubmitForm.inc.php	28 Aug 2009 22:54:54 -0000
+@@ -89,7 +89,7 @@
+ 		parent::display();
+ 	}
+ 
+-	function confirmSubmission(&$paper, &$user, &$schedConf, &$conference, $mailTemplate = 'SUBMISSION_ACK', $trackDirectors = array()) {
++	function confirmSubmission(&$paper, &$user, &$schedConf, &$conference, $mailTemplate = 'SUBMISSION_ACK') {
+ 		// Update search index
+ 		import('search.PaperSearchIndex');
+ 		PaperSearchIndex::indexPaperMetadata($paper);
+@@ -113,8 +113,11 @@
+ 				if (!empty($copyAddress)) $mail->addBcc($copyAddress);
+ 			}
+ 
+-			foreach ($trackDirectors as $trackDirector) {
+-				$mail->addBcc($trackDirector->getEmail(), $trackDirector->getFullName());
++			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
++			$editAssignments =& $editAssignmentDao->getEditAssignmentsByPaperId($paper->getPaperId());
++			while ($editAssignment =& $editAssignments->next()) {
++				$mail->addBcc($editAssignment->getDirectorEmail(), $editAssignment->getDirectorFullName());
++				unset($editAssignment);
+ 			}
+ 
+ 			$mail->assignParams(array(
+diff -u -r1.11 AuthorSubmitStep3Form.inc.php
+--- classes/author/form/submit/AuthorSubmitStep3Form.inc.php	1 Jul 2009 00:50:16 -0000	1.11
++++ classes/author/form/submit/AuthorSubmitStep3Form.inc.php	28 Aug 2009 22:54:54 -0000
+@@ -209,13 +209,13 @@
+ 				$paper->setDateSubmitted(Core::getCurrentDate());
+ 				$paper->stampStatusModified();
+ 				$paper->setCurrentStage(REVIEW_STAGE_ABSTRACT);
+-				$trackDirectors = $this->assignDirectors($paper);
++				$this->assignDirectors($paper);
+ 
+ 				if ($schedConf->getSetting('acceptSupplementaryReviewMaterials')) {
+ 					$paper->setSubmissionProgress($this->step + 2);
+ 				} else {
+ 					$paper->setSubmissionProgress(0);
+-					$this->confirmSubmission($paper, $user, $schedConf, $conference, 'SUBMISSION_ACK', $trackDirectors);
++					$this->confirmSubmission($paper, $user, $schedConf, $conference, 'SUBMISSION_ACK');
+ 				}
+ 			}
+ 		}
+diff -u -r1.9 AuthorSubmitStep5Form.inc.php
+--- classes/author/form/submit/AuthorSubmitStep5Form.inc.php	19 Jun 2009 00:07:34 -0000	1.9
++++ classes/author/form/submit/AuthorSubmitStep5Form.inc.php	28 Aug 2009 22:54:54 -0000
+@@ -81,13 +81,12 @@
+ 		$reviewMode = $authorSubmission->getReviewMode();
+ 		$user =& Request::getUser();
+ 
+-		$trackDirectors = array();
+ 		if ($reviewMode == REVIEW_MODE_BOTH_SIMULTANEOUS || $reviewMode == REVIEW_MODE_PRESENTATIONS_ALONE) {
+ 			// Editors have not yet been assigned; assign them.
+-			$trackDirectors = $this->assignDirectors($paper);
++			$this->assignDirectors($paper);
+ 		}
+ 
+-		$this->confirmSubmission($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK':'SUBMISSION_ACK', $trackDirectors);
++		$this->confirmSubmission($paper, $user, $schedConf, $conference, $reviewMode == REVIEW_MODE_BOTH_SEQUENTIAL?'SUBMISSION_UPLOAD_ACK':'SUBMISSION_ACK');
+ 
+ 		import('paper.log.PaperLog');
+ 		import('paper.log.PaperEventLogEntry');

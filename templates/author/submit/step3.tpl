@@ -212,6 +212,35 @@ function moveAuthor(dir, authorIndex) {
 
 <table width="100%" class="data">
 {if $currentSchedConf->getSetting('metaDiscipline')}
+
+{if $paperId == 6526}
+<tr valign="top">
+	
+	{php}
+		$pdo = new PDO('pgsql:dbname=ocs; 
+                           host=localhost', 
+                           'postgres', 
+                           '123123'); 
+        $grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas ORDER BY nome_area ASC')->fetchAll(PDO::FETCH_ASSOC);
+        
+        $areasSelect = [];
+        if(count($grandesAreas))
+        {
+        	foreach($grandesAreas as $grandeArea){
+        		$areasSelect[$grandeArea['cod_area']] = $grandeArea['nome_area'];
+        	}
+        }
+	{/php}
+
+	<td>Grande Área</td>
+	<td width="80%" class="value">
+		<select name="area">
+			{html_options options=$areasSelect}
+		</select>
+	</td>
+</tr>
+{/if}
+
 <tr valign="top">
 	<td{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''} rowspan="2"{/if} width="20%" class="label">{fieldLabel name="discipline" key="paper.discipline"}</td>
 	<td width="80%" class="value"><input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" /></td>

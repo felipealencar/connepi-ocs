@@ -74,7 +74,7 @@
 					<td class="value" width="75%">
 						<strong>{$sessionTypeObject->getLocalizedName()}</strong>
 					</td>
-				</tr>
+				</tr>				
 				<tr valign="top">
 					<td class="value">
 						{$sessionTypeObject->getLocalizedDescription()}

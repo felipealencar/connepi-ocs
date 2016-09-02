@@ -96,7 +96,7 @@ enable_cdn = On
 driver = postgres
 host = "127.0.0.1"
 username = postgres
-password = 123123
+password = postgres
 name = ocs
 
 ; Enable persistent connections (recommended)

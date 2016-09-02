@@ -52,15 +52,23 @@ class AuthorSubmitForm extends Form {
 	 * Display the form.
 	 */
 	function display() {
+		$schedConf =& Request::getSchedConf();
+		$settingsDao =& DAORegistry::getDAO('SchedConfSettingsDAO');
+		$confAcronym = $schedConf->getSetting('acronym');
+		$arr = json_decode(json_encode($this->paper), true);
 		$templateMgr =& TemplateManager::getManager();
+		
 		$templateMgr->assign('paperId', $this->paperId);
 		$templateMgr->assign('submitStep', $this->step);
-
+		$templateMgr->assign('trackTitle',$arr['_data']['trackTitle']);
+		$trackTitle = $arr['_data']['trackTitle'];
+		$templateMgr->assign('confAcronym',$confAcronym['pt_BR']);
+	
 		$pdo = new PDO('pgsql:dbname=ocs; 
                            host=localhost', 
                            'postgres', 
-                           '123123'); 
-        $grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas ORDER BY nome_area ASC')->fetchAll(PDO::FETCH_ASSOC);
+                           'postgres'); 
+        $grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas WHERE UPPER(nome_area) LIKE \''.$trackTitle.'\'')->fetchAll(PDO::FETCH_ASSOC);
 
         $selectAreas = ['' => 'Selecione'];
         if(count($grandesAreas)){
@@ -83,8 +91,7 @@ class AuthorSubmitForm extends Form {
 		}
 		$templateMgr->assign('helpTopicId', $helpTopicId);
 
-		$schedConf =& Request::getSchedConf();
-		$settingsDao =& DAORegistry::getDAO('SchedConfSettingsDAO');
+		
 
 		// Determine which submission steps should be shown
 

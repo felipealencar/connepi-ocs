@@ -56,6 +56,21 @@ class AuthorSubmitForm extends Form {
 		$templateMgr->assign('paperId', $this->paperId);
 		$templateMgr->assign('submitStep', $this->step);
 
+		$pdo = new PDO('pgsql:dbname=ocs; 
+                           host=localhost', 
+                           'postgres', 
+                           '123123'); 
+        $grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas ORDER BY nome_area ASC')->fetchAll(PDO::FETCH_ASSOC);
+
+        $selectAreas = ['' => 'Selecione'];
+        if(count($grandesAreas)){
+        	foreach($grandesAreas as $area){
+        		$selectAreas[$area['cod_area']] = $area['nome_area'];
+        	}
+        }
+
+        $templateMgr->assign('grandesAreas', $selectAreas);
+
 		switch($this->step) {
 			case 3:
 				$helpTopicId = 'submission.indexingMetadata';

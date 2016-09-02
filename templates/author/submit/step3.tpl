@@ -212,6 +212,42 @@ function moveAuthor(dir, authorIndex) {
 
 <table width="100%" class="data">
 {if $currentSchedConf->getSetting('metaDiscipline')}
+
+{if $paperId == 6526}
+<tr valign="top">
+	<td>Grande Área</td>
+	<td width="80%" class="value">
+		<select name="area" class="grandes-areas">
+			{html_options options=$grandesAreas}
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Áreas de conhecimento</td>
+	<td width="80%" class="value">
+		<select name="area" class="areas">
+			
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Sub Áreas</td>
+	<td width="80%" class="value">
+		<select name="area" class="sub-areas" multiple="5">
+			
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Sub Áreas</td>
+	<td width="80%" class="value">
+		<select name="area" class="especialidades" multiple="5">
+			
+		</select>
+	</td>
+</tr>
+{/if}
+
 <tr valign="top">
 	<td{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''} rowspan="2"{/if} width="20%" class="label">{fieldLabel name="discipline" key="paper.discipline"}</td>
 	<td width="80%" class="value"><input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" /></td>

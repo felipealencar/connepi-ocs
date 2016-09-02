@@ -215,27 +215,34 @@ function moveAuthor(dir, authorIndex) {
 
 {if $paperId == 6526}
 <tr valign="top">
-	
-	{php}
-		$pdo = new PDO('pgsql:dbname=ocs; 
-                           host=localhost', 
-                           'postgres', 
-                           '123123'); 
-        $grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas ORDER BY nome_area ASC')->fetchAll(PDO::FETCH_ASSOC);
-        
-        $areasSelect = [];
-        if(count($grandesAreas))
-        {
-        	foreach($grandesAreas as $grandeArea){
-        		$areasSelect[$grandeArea['cod_area']] = $grandeArea['nome_area'];
-        	}
-        }
-	{/php}
-
 	<td>Grande Área</td>
 	<td width="80%" class="value">
-		<select name="area">
-			{html_options options=$areasSelect}
+		<select name="area" class="grandes-areas">
+			{html_options options=$grandesAreas}
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Áreas de conhecimento</td>
+	<td width="80%" class="value">
+		<select name="area" class="areas">
+			
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Sub Áreas</td>
+	<td width="80%" class="value">
+		<select name="area" class="sub-areas" multiple="5">
+			
+		</select>
+	</td>
+</tr>
+<tr valign="top">
+	<td>Sub Áreas</td>
+	<td width="80%" class="value">
+		<select name="area" class="especialidades" multiple="5">
+			
 		</select>
 	</td>
 </tr>

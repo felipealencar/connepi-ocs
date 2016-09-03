@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2016-09-02 23:36:21
+<?php /* Smarty version 2.6.26, created on 2016-09-03 17:11:33
          compiled from author/submit/step3.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'author/submit/step3.tpl', 20, false),array('function', 'fieldLabel', 'author/submit/step3.tpl', 43, false),array('function', 'form_language_chooser', 'author/submit/step3.tpl', 52, false),array('function', 'translate', 'author/submit/step3.tpl', 53, false),array('function', 'html_options', 'author/submit/step3.tpl', 108, false),array('modifier', 'escape', 'author/submit/step3.tpl', 21, false),array('modifier', 'assign', 'author/submit/step3.tpl', 45, false),)), $this); ?>

@@ -84,6 +84,40 @@
 <h4>{translate key="submission.indexing"}</h4>
 	
 <table width="100%" class="data">
+	{if $confAcronym == 'XI CONNEPI'}
+	<tr valign="top">
+		<td class="label" required="true">Grande Área{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="grandes-areas">
+				{html_options options=$grandesAreas}
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" required="true">Áreas de conhecimento{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="areas">
+				
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" required="true">Sub Áreas{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="sub-areas" multiple="5">
+				
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" >Especialidades{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="especialidades" multiple="5">
+				
+			</select>
+		</td>
+	</tr>
+	{/if}
 	{if $currentSchedConf->getSetting('metaDiscipline')}
 	<tr valign="top">
 		<td width="20%" class="label">{translate key="paper.discipline"}</td>

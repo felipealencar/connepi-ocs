@@ -157,7 +157,6 @@ class AuthorSubmitStep1Form extends AuthorSubmitForm {
 			$paperDao->insertPaper($this->paper);
 			$this->paperId = $this->paper->getPaperId();
 		}
-
 		return $this->paperId;
 	}
 

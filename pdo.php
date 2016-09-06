@@ -9,6 +9,7 @@ class DB extends PDO
         if (is_null(self::$db) === true)
         {
             self::$db = new PDO( "pgsql:dbname=ocs; user=postgres; password=2165162; host=localhost; port=5432" );
+            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
         return self::$db;
@@ -22,32 +23,76 @@ class DB extends PDO
       }
     }
 
-    public static function inserirDuplicado($dados){
-      if(!$result = self::$db->query("SELECT user_id FROM _users WHERE email = '" .$dados['email']. "'")->fetchAll(PDO::FETCH_ASSOC)){
-        $sql = 'INSERT INTO _users (username, password, salutation, first_name, last_name, initials, gender, affiliation, email, country, interests, locales) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
-        self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = self::$db->prepare($sql);
-        $stmt->bindValue(1, $dados['username']);
-        $stmt->bindValue(2, $dados['password']);
-        $stmt->bindValue(3, $dados['salutation']);
-        $stmt->bindValue(4, $dados['first_name']);
-        $stmt->bindValue(5, $dados['last_name']);
-        $stmt->bindValue(6, $dados['initials']);
-        $stmt->bindValue(7, $dados['gender']);
-        $stmt->bindValue(8, $dados['affiliation']);
-        $stmt->bindValue(9, $dados['email']);
-        $stmt->bindValue(10, $dados['country']);
-        $stmt->bindValue(11, $dados['interests']);
-        $stmt->bindValue(12, $dados['locales']);
-        if($stmt->execute()){
-          return 1;
-        } else {
-          return 0;
-        }
-      } else {
-        echo "User: <b>{$dados['email']}</b> já inserido em <b>_users</b>";
+    public static function userImported($email){
+      if($result = self::$db->query("SELECT user_id FROM _users WHERE email = '$email'")->fetchAll(PDO::FETCH_ASSOC)){
         return 1;
+      } else {
+        return 0;
       }
+    }
+
+    public static function inserirDuplicado($dados){
+      $sql = 'INSERT INTO _users (username, password, salutation, first_name, last_name, initials, gender, affiliation, email, country, interests, locales) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+      $stmt = self::$db->prepare($sql);
+      $stmt->bindValue(1, $dados['username']);
+      $stmt->bindValue(2, $dados['password']);
+      $stmt->bindValue(3, $dados['salutation']);
+      $stmt->bindValue(4, $dados['first_name']);
+      $stmt->bindValue(5, $dados['last_name']);
+      $stmt->bindValue(6, $dados['initials']);
+      $stmt->bindValue(7, $dados['gender']);
+      $stmt->bindValue(8, $dados['affiliation']);
+      $stmt->bindValue(9, $dados['email']);
+      $stmt->bindValue(10, $dados['country']);
+      $stmt->bindValue(11, $dados['interests']);
+      $stmt->bindValue(12, $dados['locales']);
+      if($stmt->execute()){
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+
+    public static function processDados($avaliador){
+      $username   = strtolower(strstr($avaliador['email'], '@', true));
+      for($i=0; $i<strlen($username); $i++){
+        if(!strpos(" abcdefghijklmnopqrstuvxzwy0123456789._-", $username[$i]) !== false){
+          $username[$i] = 'i';
+        }
+      }
+      $full_name  = explode(" ", $avaliador['nome']);
+      $password   = '(CONCAT(' . $username . ', \'' . strtolower($full_name[0]) . '\'))';
+      $salutation = $avaliador['titulacao'];
+      $first_name = $full_name[0];
+      $last_name  = "";
+      for($i = 1; $i < count($full_name); $i++){
+        if($i < count($full_name)-1){
+          $last_name .= $full_name[$i] . ' ';
+        } else {
+          $last_name .= $full_name[$i];
+        }
+      }
+      $initials = "";
+      foreach($full_name as $w){
+        $initials .= strtoupper($w[0]);
+      }
+      $email = $avaliador['email'];
+      $interests = DB::getInterests($avaliador['area']);
+
+      return $dados = array(
+        'username' => $username,
+        'password' => $password,
+        'salutation' => $salutation,
+        'first_name' => $first_name,
+        'last_name' => $last_name,
+        'initials' => $initials,
+        'gender' => ' ',
+        'affiliation' => ' ',
+        'email' => $email,
+        'country' => 'BR',
+        'interests' => $interests,
+        'locales' => 'pt_BR'
+      );
     }
 
     public static function getInterests($interests){

@@ -8,7 +8,7 @@ class DB extends PDO
     {
         if (is_null(self::$db) === true)
         {
-            self::$db = new PDO( "pgsql:dbname=ocs; user=postgres; password=2165162; host=localhost; port=5432" );
+            self::$db = new PDO( "pgsql:dbname=ocs; user=postgres; password=postgres; host=localhost; port=5432" );
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
@@ -24,7 +24,7 @@ class DB extends PDO
     }
 
     public static function userImported($email){
-      if($result = self::$db->query("SELECT user_id FROM _users WHERE email = '$email'")->fetchAll(PDO::FETCH_ASSOC)){
+      if($result = self::$db->query("SELECT user_id FROM users_to_verify WHERE email = '$email'")->fetchAll(PDO::FETCH_ASSOC)){
         return 1;
       } else {
         return 0;
@@ -32,7 +32,7 @@ class DB extends PDO
     }
 
     public static function inserirDuplicado($dados){
-      $sql = 'INSERT INTO _users (username, password, salutation, first_name, last_name, initials, gender, affiliation, email, country, interests, locales) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+      $sql = 'INSERT INTO users_to_verify (username, password, salutation, first_name, last_name, initials, gender, affiliation, email, country, interests, locales) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
       $stmt = self::$db->prepare($sql);
       $stmt->bindValue(1, $dados['username']);
       $stmt->bindValue(2, $dados['password']);
@@ -56,12 +56,12 @@ class DB extends PDO
     public static function processDados($avaliador){
       $username   = strtolower(strstr($avaliador['email'], '@', true));
       for($i=0; $i<strlen($username); $i++){
-        if(!strpos(" abcdefghijklmnopqrstuvxzwy0123456789._-", $username[$i]) !== false){
-          $username[$i] = 'i';
+        if(!strpos(" abcdefghijklmnopqrstuvxzwy0123456789_-", $username[$i]) !== false){
+          $username[$i] = '_';
         }
       }
       $full_name  = explode(" ", $avaliador['nome']);
-      $password   = '(CONCAT(' . $username . ', \'' . strtolower($full_name[0]) . '\'))';
+      $password   = md5($username.strtolower($full_name[0]));
       $salutation = $avaliador['titulacao'];
       $first_name = $full_name[0];
       $last_name  = "";

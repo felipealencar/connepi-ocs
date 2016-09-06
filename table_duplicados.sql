@@ -2,7 +2,7 @@
 
 -- DROP TABLE _users;
 
-CREATE TABLE _users
+CREATE TABLE users_to_verify
 (
   user_id serial NOT NULL,
   username character varying(45),
@@ -31,20 +31,20 @@ CREATE TABLE _users
   disabled smallint DEFAULT 0,
   disabled_reason text,
   interests text,
-  CONSTRAINT _users_pkey PRIMARY KEY (user_id )
+  CONSTRAINT users_to_verify_pkey PRIMARY KEY (user_id )
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE _users
+ALTER TABLE users_to_verify
   OWNER TO postgres;
 
 -- Index: _users_email
 
 -- DROP INDEX _users_email;
 
-CREATE UNIQUE INDEX _users_email
-  ON _users
+CREATE UNIQUE INDEX users_to_verify_email
+  ON users_to_verify
   USING btree
   (email COLLATE pg_catalog."default" );
 
@@ -52,8 +52,8 @@ CREATE UNIQUE INDEX _users_email
 
 -- DROP INDEX _users_username;
 
-CREATE UNIQUE INDEX _users_username
-  ON _users
+CREATE UNIQUE INDEX users_to_verify_username
+  ON users_to_verify
   USING btree
   (username COLLATE pg_catalog."default" );
 

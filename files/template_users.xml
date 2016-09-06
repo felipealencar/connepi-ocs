@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE users PUBLIC "-//PKP/OCS Users XML//EN" "http://pkp.sfu.ca/ocs/dtds/users.dtd">
+<users>
+	<user>
+		<username>fulanodetal1</username> <!--Pegar login do e-mail sem o @dominio.com--> <!--O login deve conter apenas letras minúsculas (a-z), números (0-9), sublinhados (_) e hífens (-).-->
+		<password encrypted="md5">(CONCAT(username, 'fulano123'))</password><!--A senha deverá ser gerada concatenando o username com o primeiro nome do usuário+123.-->
+		<salutation>MESTRE</salutation><!--Aqui deverá ser inserido o valor da coluna titulação da tabela de avaliadores.-->
+		<first_name>FULANO</first_name>
+		<last_name>DE TAL</last_name>
+		<initials>FDT</initials><!--Pegar as iniciais do nome do avaliador.-->
+		<gender></gender><!--Pode deixar vazio.-->
+		<affiliation>IFAL</affiliation><!--Pegar a instituição selecionada-->
+		<email>fulanodetal1@gmail.com</email><!-- ATENÇÃO NESTE PONTO: Verificar se o e-mail que o usuário informou já não está cadastrado no sistema antes de gerar um item <user>...</user> neste xml. Caso esteja, registrar em alguma tabela nova para o nosso controle e posterior contato com o avaliador.-->
+		<country>BR</country><!-- Inserir BR -->
+		<interests locale="pt_BR">CIÊNCIAS EXATAS E DA TERRA, Computação, Algoritmos</interests><!-- Inserir a string concatenada das áreas e especialidades selecionadas no avaliadores.php-->
+		<locales>pt_BR</locales><!-- Inserir pt_BR -->
+		<role type="reviewer"/>
+	</user>
+	<user>
+		<username>beltrano.silva</username>
+		<password encrypted="md5">(CONCAT(username, 'beltrano123'))</password>
+		<salutation>DOUTOR</salutation>
+		<first_name>BELTRANO</first_name>
+		<last_name>DA SILVA</last_name>
+		<initials>BDS</initials>
+		<gender></gender>
+		<affiliation>Universidade Federal de Alagoas - UFAL</affiliation>
+		<email>beltrano.silva@gmail.com</email>
+		<country>BR</country>
+		<interests locale="pt_BR">CIÊNCIAS HUMANAS, Sociologia, Política Internacional</interests>
+		<locales>es_ES:pt_BR</locales>
+		<role type="reviewer"/>
+	</user>
+</users>

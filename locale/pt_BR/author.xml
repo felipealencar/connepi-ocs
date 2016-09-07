@@ -65,6 +65,7 @@
 	<message key="presenter.submit.form.authorRequired">A submissão deve ter pelo menos um autor.</message>
 	<message key="presenter.submit.form.authorRequiredFields">São campos obrigatórios o primeiro nome (prénome), sobrenome e e-mail para cada autor.</message>
 	<message key="author.submit.form.titleRequired">Digite o título documento.</message>
+	<message key="author.submit.form.disciplineRequired">Selecione as áreas do documento.</message>
 	<message key="author.submit.submissionFile">Documento da Submissão</message>
 	<message key="author.submit.uploadSubmissionFile">Transferir documento da submissão</message>
 	<message key="author.submit.replaceSubmissionFile">Subsituir documento da submissão</message>

@@ -96,7 +96,7 @@ function moveAuthor(dir, authorIndex) {
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="authors-$authorIndex-affiliation" key="user.affiliation"}</td>
 	<td width="80%" class="value">
-		<textarea name="authors[{$authorIndex|escape}][affiliation]" class="textArea" id="authors-{$authorIndex|escape}-affiliation" rows="5" cols="40">{$author.affiliation|escape}</textarea><br/>
+		<textarea name="authors[{$authorIndex|escape}][affiliation]" class="textArea {if $confAcronym == 'XI CONNEPI'}affiliation-connepi{/if}" id="authors-{$authorIndex|escape}-affiliation" rows="5" cols="40">{$author.affiliation|escape}</textarea><br/>
 		<span class="instruct">{translate key="user.affiliation.description"}</span>
 	</td>
 </tr>
@@ -212,10 +212,9 @@ function moveAuthor(dir, authorIndex) {
 
 <table width="100%" class="data">
 {if $currentSchedConf->getSetting('metaDiscipline')}
-
-{if $paperId == 6526}
+{if $confAcronym == 'XI CONNEPI'}
 <tr valign="top">
-	<td>Grande Área</td>
+	<td class="label" required="true">Grande Área{fieldLabel required="true"}</td>
 	<td width="80%" class="value">
 		<select name="area" class="grandes-areas">
 			{html_options options=$grandesAreas}
@@ -223,7 +222,7 @@ function moveAuthor(dir, authorIndex) {
 	</td>
 </tr>
 <tr valign="top">
-	<td>Áreas de conhecimento</td>
+	<td class="label" required="true">Áreas de conhecimento{fieldLabel required="true"}</td>
 	<td width="80%" class="value">
 		<select name="area" class="areas">
 			
@@ -231,7 +230,7 @@ function moveAuthor(dir, authorIndex) {
 	</td>
 </tr>
 <tr valign="top">
-	<td>Sub Áreas</td>
+	<td class="label" required="true">Sub Áreas{fieldLabel required="true"}</td>
 	<td width="80%" class="value">
 		<select name="area" class="sub-areas" multiple="5">
 			
@@ -239,7 +238,7 @@ function moveAuthor(dir, authorIndex) {
 	</td>
 </tr>
 <tr valign="top">
-	<td>Sub Áreas</td>
+	<td class="label" >Especialidades{fieldLabel required="true"}</td>
 	<td width="80%" class="value">
 		<select name="area" class="especialidades" multiple="5">
 			
@@ -249,8 +248,10 @@ function moveAuthor(dir, authorIndex) {
 {/if}
 
 <tr valign="top">
-	<td{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''} rowspan="2"{/if} width="20%" class="label">{fieldLabel name="discipline" key="paper.discipline"}</td>
-	<td width="80%" class="value"><input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" /></td>
+	<td{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''} rowspan="2"{/if} width="20%" class="label">{fieldLabel name="discipline" key="paper.discipline" required="true"}</td>
+	
+	<td width="80%" class="value"><input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" {if $confAcronym == 'XI CONNEPI'}readonly{/if}/></td>
+	
 </tr>
 {if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''}
 <tr valign="top">

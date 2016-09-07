@@ -1,3 +1,5 @@
 /reports
 /ocs.dump.zip
-cache
+/cache
+/pdo.php
+/get.php

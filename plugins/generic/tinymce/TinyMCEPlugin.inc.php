@@ -85,7 +85,7 @@ class TinyMCEPlugin extends GenericPlugin {
 					case 3:
 						$count = max(1, count($templateMgr->get_template_vars('authors')));
 						for ($i=0; $i<$count; $i++) {
-							$fields[] = "authors-$i-affiliation";
+							//$fields[] = "authors-$i-affiliation";
 							$fields[] = "authors-$i-biography";
 						}
 						$fields[] = 'abstract';

@@ -204,10 +204,44 @@ function moveAuthor(dir, authorIndex) {
 
 <table width="100%" class="data">
 	{if $currentSchedConf->getSetting('metaDiscipline')}
+	{if $confAcronym == 'XI CONNEPI'}
+	<tr valign="top">
+		<td class="label" required="true">Grande Área{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="grandes-areas">
+				{html_options options=$grandesAreas}
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" required="true">Áreas de conhecimento{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="areas">
+				
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" required="true">Sub Áreas{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="sub-areas" multiple="5">
+				
+			</select>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label" >Especialidades{fieldLabel required="true"}</td>
+		<td width="80%" class="value">
+			<select name="area" class="especialidades" multiple="5">
+				
+			</select>
+		</td>
+	</tr>
+	{/if}
 	<tr valign="top">
 		<td class="label">{fieldLabel name="discipline" key="paper.discipline"}</td>
 		<td class="value">
-			<input type="text" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" class="textField" />
+			<input type="text" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" class="textField" {if $confAcronym == 'XI CONNEPI'}readonly{/if}/>
 			{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''}
 			<br />
 			<span class="instruct">{$currentSchedConf->getLocalizedSetting('metaDisciplineExamples')|escape}</span>

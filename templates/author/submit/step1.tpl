@@ -17,7 +17,12 @@
 	{assign var="howToKeyName" value="author.submit.howToSubmitNoPhone"}
 {/if}
 
+{if $confAcronym != 'XI CONNEPI'}
 <p>{translate key=$howToKeyName supportName=$currentSchedConf->getSetting('supportName') supportEmail=$currentSchedConf->getSetting('supportEmail') supportPhone=$currentSchedConf->getSetting('supportPhone')}</p>
+{/if}
+{if $confAcronym == 'XI CONNEPI'}
+<p><b>Em caso de dificuldades</b>, preencha o nosso <a href="https://goo.gl/forms/7qTIpG3gFEKOhnnX2">formulário de suporte</a>. Faremos o possível para respondê-lo em até 2 dias úteis.</p>
+{/if}
 
 <div class="separator"></div>
 

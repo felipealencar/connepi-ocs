@@ -7,22 +7,26 @@ $file = fopen("users.xml", "w") or die("Falha ao abrir o arquivo.");
 
 echo("<ul style='list-style-type:none'>");
 fwrite($file, '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL.'<!DOCTYPE users PUBLIC "-//PKP/OCS Users XML//EN" "http://pkp.sfu.ca/ocs/dtds/users.dtd">'.PHP_EOL.'<users>');
+$countUsers = 0;
+$countUsers2 = 0;
 foreach($avaliadores as $avaliador){
   // dados do user (pre-processamento)
   $dados = DB::processDados($avaliador);
 
   // inserir na table '_users' (duplicado)
-  if(DB::emailExiste($dados['email'])){
+  if('a' == 'b'){
+	$countUsers++;
     echo("<li>Usuário já cadastrado: {$dados['email']}</li>");
     if(DB::userImported($dados['email'])){
       echo("<li style='margin-left:30px;padding-left:10px;border-left:2px solid grey'>Já foi inserido em 'duplicados'</li>");
     } else {
-      DB::inserirDuplicado($dados);
+      //DB::inserirDuplicado($dados);
       echo("<li style='margin-left:30px;padding-left:10px;border-left:2px solid grey'>Inserido em 'duplicados'</li>");
     }
   }
   // escrever no .xml
   else {
+	$countUsers2++;
     fwrite($file, PHP_EOL . "<user>" . PHP_EOL);
     fwrite($file, '  <username>' .$dados['username']. '</username>' . PHP_EOL);
     fwrite($file, '  <password encrypted="md5">' .$dados['password']. '</password>' . PHP_EOL);
@@ -43,7 +47,7 @@ foreach($avaliadores as $avaliador){
 fwrite($file, '</users>');
 echo("</ul>");
 fclose($file);
-
+echo $countUsers2;
 // finalizado
 echo("<h3>Arquivo gerado: <a href='users.xml'>users.xml</a></h3>");
 ?>

@@ -581,7 +581,7 @@ class ReviewAssignment extends DataObject {
 		static $reviewerRecommendationOptions = array(
 			'' => 'common.chooseOne',
 			SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.paper.decision.accept',
-			SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.paper.decision.pendingRevisions',
+			//TODO: RETIRAR COMENTÁRIO APÓS CONNEPI 2016: SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.paper.decision.pendingRevisions',
 			SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.paper.decision.decline');
 	       /* static $reviewerRecommendationOptions = array(
                         '' => 'common.chooseOne',

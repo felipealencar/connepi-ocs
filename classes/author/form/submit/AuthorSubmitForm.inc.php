@@ -64,7 +64,7 @@ class AuthorSubmitForm extends Form {
 		$templateMgr->assign('confAcronym',$confAcronym['pt_BR']);
 
 		$pdo = new PDO('pgsql:dbname=ocs; host=192.168.253.46; user=sistema_ocs; password=10s#th7if@l; port=5432');
-		/* $pdo = new PDO('pgsql:dbname=ocs; host=localhost; user=postgres; password=postgres; port=5432'); */
+		//$pdo = new PDO('pgsql:dbname=ocs; host=localhost; user=postgres; password=postgres; port=5432');
 
 		$grandesAreas = $pdo->query("SELECT cod_area, nome_area FROM site_grandes_areas WHERE UPPER(nome_area) LIKE UPPER('$trackTitle')")->fetchAll(PDO::FETCH_ASSOC);
 

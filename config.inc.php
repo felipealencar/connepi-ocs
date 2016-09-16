@@ -94,9 +94,9 @@ enable_cdn = On
 [database]
 
 driver = postgres
-host = "localhost"
-username = postgres
-password = 2165162
+host = "192.168.253.46"
+username = sistema_ocs
+password = 10s#th7if@l
 name = ocs
 
 ; Enable persistent connections (recommended)

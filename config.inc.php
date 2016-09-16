@@ -94,9 +94,9 @@ enable_cdn = On
 [database]
 
 driver = postgres
-host = "127.0.0.1"
+host = "localhost"
 username = postgres
-password = postgres
+password = 2165162
 name = ocs
 
 ; Enable persistent connections (recommended)
@@ -217,7 +217,7 @@ allowed_html = "<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b
 
 ; Use SMTP for sending mail instead of mail()
 smtp = On
-force_login_ssl = On 
+force_login_ssl = On
 
 ; SMTP server settings
 smtp_server = webmail.ifal.edu.br
@@ -370,7 +370,7 @@ tar = /bin/tar
 ; required arguments. Use %xsl to substitute the location of the XSL
 ; stylesheet file, and %xml for the location of the XML source file; eg:
 ; /usr/bin/java -jar ~/java/xalan.jar -HTML -IN %xml -XSL %xsl
-xslt_command = 
+xslt_command =
 
 
 ;;;;;;;;;;;;;;;;;;

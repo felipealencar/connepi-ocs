@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * @defgroup author_form_submit
  */
 
@@ -55,30 +55,27 @@ class AuthorSubmitForm extends Form {
 		$settingsDao =& DAORegistry::getDAO('SchedConfSettingsDAO');
 		$confAcronym = $schedConf->getSetting('acronym');
 		$arr = json_decode(json_encode($this->paper),true);
-	
+
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('paperId', $this->paperId);
 		$templateMgr->assign('submitStep', $this->step);
 		$templateMgr->assign('trackTitle',$arr['_data']['trackTitle']);
 		$trackTitle = $arr['_data']['trackTitle'];
 		$templateMgr->assign('confAcronym',$confAcronym['pt_BR']);
-	
-		$pdo = new PDO('pgsql:dbname=ocs; 
-                           host=localhost', 
-                           'postgres', 
-                           'postgres');
 
-		$grandesAreas = $pdo->query('SELECT cod_area, nome_area FROM site_grandes_areas WHERE UPPER(nome_area) LIKE UPPER(\''.$trackTitle.'\')')->fetchAll(PDO::FETCH_ASSOC);
+		$pdo = new PDO('pgsql:dbname=ocs; host=192.168.253.46; user=sistema_ocs; password=10s#th7if@l; port=5432');
+		/* $pdo = new PDO('pgsql:dbname=ocs; host=localhost; user=postgres; password=postgres; port=5432'); */
 
-		$selectAreas = array('' => 'Selecione');
-		
+		$grandesAreas = $pdo->query("SELECT cod_area, nome_area FROM site_grandes_areas WHERE UPPER(nome_area) LIKE UPPER('$trackTitle')")->fetchAll(PDO::FETCH_ASSOC);
+
+		$selectAreas = array();
+
         if(count($grandesAreas)){
-			
         	foreach($grandesAreas as $area){
         		$selectAreas[$area['cod_area']] = $area['nome_area'];
         	}
         }
-		
+
         $templateMgr->assign('grandesAreas', $selectAreas);
 
 		switch($this->step) {

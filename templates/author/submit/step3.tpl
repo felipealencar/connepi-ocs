@@ -148,7 +148,7 @@ function moveAuthor(dir, authorIndex) {
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="authors-0-affiliation" key="user.affiliation"}</td>
 	<td width="80%" class="value">
-		<textarea class="textArea" name="authors[0][affiliation]" id="authors-0-affiliation" rows="5" cols="40"></textarea><br/>
+		<textarea class="textArea {if $displayPageHeaderTitle == 'CONNEPI'}affiliation-connepi{/if}" name="authors[0][affiliation]" id="authors-0-affiliation" rows="5" cols="40"></textarea><br/>
 		<span class="instruct">{translate key="user.affiliation.description"}</span>
 	</td>
 </tr>
@@ -217,41 +217,39 @@ function moveAuthor(dir, authorIndex) {
 	<td class="label" required="true">Grande Área{fieldLabel required="true"}</td>
 	<td width="80%" class="value">
 		<select name="area" class="grandes-areas">
+      <option value="" disabled selected>Selecione</option>
 			{html_options options=$grandesAreas}
 		</select>
 	</td>
 </tr>
 <tr valign="top">
-	<td class="label" required="true">Áreas de conhecimento{fieldLabel required="true"}</td>
+	<td class="label" required="true">Áreas de conhecimento</td>
 	<td width="80%" class="value">
 		<select name="area" class="areas">
-			
+
 		</select>
 	</td>
 </tr>
 <tr valign="top">
-	<td class="label" required="true">Sub Áreas{fieldLabel required="true"}</td>
+	<td class="label" required="true">Sub Áreas</td>
 	<td width="80%" class="value">
-		<select name="area" class="sub-areas" multiple="5">
-			
-		</select>
+		<div class="sub-areas" style="padding:4px 0;background:rgba(0,0,0,.1)"></div>
 	</td>
 </tr>
 <tr valign="top">
-	<td class="label" >Especialidades{fieldLabel required="true"}</td>
+	<td class="label" >Especialidades</td>
 	<td width="80%" class="value">
-		<select name="area" class="especialidades" multiple="5">
-			
-		</select>
+		<div class="especialidades" style="padding:4px 0;background:rgba(0,0,0,.1)"></div>
 	</td>
 </tr>
 {/if}
-
 <tr valign="top">
 	<td{if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''} rowspan="2"{/if} width="20%" class="label">{fieldLabel name="discipline" key="paper.discipline" required="true"}</td>
-	
-	<td width="80%" class="value"><input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" {if $confAcronym == 'XI CONNEPI'}readonly{/if}/></td>
-	
+
+	<td width="80%" class="value">
+    <input type="text" class="textField" name="discipline[{$formLocale|escape}]" id="discipline" value="{$discipline[$formLocale]|escape}" size="40" maxlength="255" {if $confAcronym == 'XI CONNEPI'}readonly{/if}/>
+  </td>
+
 </tr>
 {if $currentSchedConf->getLocalizedSetting('metaDisciplineExamples') != ''}
 <tr valign="top">

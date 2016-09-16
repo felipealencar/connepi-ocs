@@ -102,7 +102,7 @@
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="body" key="email.body"}</td>
-	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea">{$body|escape}</textarea></td>
+	<td class="value"><textarea name="body" cols="60" rows="15" class="textArea"></textarea></td>
 </tr>
 </table>
 

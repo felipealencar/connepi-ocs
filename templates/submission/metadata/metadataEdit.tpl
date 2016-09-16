@@ -214,27 +214,23 @@ function moveAuthor(dir, authorIndex) {
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label" required="true">Áreas de conhecimento{fieldLabel required="true"}</td>
+		<td class="label" required="true">Áreas de conhecimento</td>
 		<td width="80%" class="value">
 			<select name="area" class="areas">
-				
+
 			</select>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="label" required="true">Sub Áreas{fieldLabel required="true"}</td>
+		<td class="label" required="true">Sub Áreas</td>
 		<td width="80%" class="value">
-			<select name="area" class="sub-areas" multiple="5">
-				
-			</select>
+			<div class="sub-areas" style="padding:4px 0;background-color:rgba(0,0,0,.1)"></div>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td class="label" >Especialidades{fieldLabel required="true"}</td>
 		<td width="80%" class="value">
-			<select name="area" class="especialidades" multiple="5">
-				
-			</select>
+			<div class="especialidades" style="padding:4px 0;background-color:rgba(0,0,0,.1)"></div>
 		</td>
 	</tr>
 	{/if}

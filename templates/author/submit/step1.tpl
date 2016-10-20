@@ -30,6 +30,8 @@
 	<p>{translate key="author.submit.notAccepting"}</p>
 {else}
 
+
+
 <form name="submit" method="post" action="{url op="saveSubmit" path=$submitStep}" onsubmit="return checkSubmissionChecklist()">
 {if $paperId}<input type="hidden" name="paperId" value="{$paperId|escape}" />{/if}
 

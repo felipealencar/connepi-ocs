@@ -102,7 +102,10 @@ class AuthorHandler extends Handler {
 		} else {
 			$acceptingSubmissions = true;
 		}
-
+		//TODO: REMOVER APÓS CONNEPI 2016
+		$acceptingSubmissions = false;
+		$notAcceptingSubmissionsMessage = Locale::translate('author.submit.submissionDeadlinePassed', array('closedDate' => strftime(Config::getVar('general', 'date_format_short'), $submissionsCloseDate)));
+		/////////////////////////////////
 		$templateMgr->assign('acceptingSubmissions', $acceptingSubmissions);
 		if(isset($notAcceptingSubmissionsMessage))
 			$templateMgr->assign('notAcceptingSubmissionsMessage', $notAcceptingSubmissionsMessage);

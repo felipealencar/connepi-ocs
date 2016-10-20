@@ -181,7 +181,9 @@ class SchedConfHandler extends Handler {
 		} else {
 			$acceptingSubmissions = true;
 		}
-
+		//TODO: REMOVER APÓS CONNEPI 2016
+		if($schedConf->getId() == 46)
+			$acceptingSubmissions = false;
 		$templateMgr->assign('acceptingSubmissions', $acceptingSubmissions);
 		if (!$acceptingSubmissions) $templateMgr->assign('notAcceptingSubmissionsMessage', $notAcceptingSubmissionsMessage);
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.setup.submissions');

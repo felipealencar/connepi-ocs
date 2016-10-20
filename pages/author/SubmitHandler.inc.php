@@ -354,7 +354,11 @@ class SubmitHandler extends AuthorHandler {
 
 		$paperDao =& DAORegistry::getDAO('PaperDAO');
 		$user =& Request::getUser();
-
+		
+		//TODO: REMOVER APÓS CONNEPI 2016
+		Request::redirect(null, null, 'author', 'index');
+		/////////////////////////////////////////////////
+		
 		if ($step !== false && ($step < 1 || $step > 5 || (!isset($paperId) && $step != 1))) {
 			Request::redirect(null, null, null, 'submit', array(1));
 		}
